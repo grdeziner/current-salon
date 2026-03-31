@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 240">
+<path d="M0 34C0 15.2223 15.2223 0 34 0V0C52.7777 0 68 15.2223 68 34V34C68 52.7777 52.7777 68 34 68V68C15.2223 68 0 52.7777 0 34V34Z" fill="var(--fill-0, #616161)"/>
+<g id="play-color">
+</g>
+<path id="play" d="M27.1667 48.7143L25 50V47.3571V20.6429V18L27.1667 19.3571L48.8333 32.7143L51 34L48.8333 35.3571L27.1667 48.7143ZM46.6667 34L27.1667 22V46.0714L46.6667 34Z" fill="var(--fill-0, white)"/>
+</g>
+</svg>
