@@ -44,6 +44,7 @@ p { margin: 0; }
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-top: 134px; /* compensates for fixed header */
 }
 
 /* ------------------------------------------------------------
@@ -60,9 +61,13 @@ p { margin: 0; }
    HEADER / NAV
    ============================================================ */
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   background: var(--color-white);
   width: 100%;
-  flex-shrink: 0;
 }
 
 .site-header .container {
@@ -818,6 +823,7 @@ p { margin: 0; }
   }
 
   /* Header */
+  .site { padding-top: 90px; }
   .site-header .container { height: 90px; }
   .header-logo img { height: 38px; }
   .header-nav { gap: 16px; }
@@ -855,6 +861,7 @@ p { margin: 0; }
   }
 
   /* Header */
+  .site { padding-top: 72px; }
   .site-header .container {
     height: 72px;
     position: relative;
