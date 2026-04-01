@@ -8,8 +8,14 @@
    IvyBodoni is a licensed typeface — replace the @font-face
    src with your licensed file paths before going to production.
    ------------------------------------------------------------ */
-@import url("https://use.typekit.net/xbw8jyb.css");
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap');
+/* Adobe Fonts + Google Fonts loaded via <link> tags in HTML for non-blocking performance */
+
+/* Force font-display:swap for IvyBodoni (Adobe Fonts does not expose this natively) */
+@font-face {
+  font-family: "ivybodoni";
+  font-display: swap;
+  src: local("ivybodoni"); /* no-op src; real files loaded by Adobe Fonts kit */
+}
 
 /* ------------------------------------------------------------
    COLOR TOKENS

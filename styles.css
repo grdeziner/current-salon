@@ -1,8 +1,7 @@
 /* ============================================================
    CURRENT SALON — COMPONENT STYLES
    ============================================================ */
-@import url('./design-system.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+/* font + icon CSS loaded via <link> tags in HTML for non-blocking performance */
 
 /* ------------------------------------------------------------
    RESET & BASE
@@ -769,6 +768,11 @@ p { margin: 0; }
 .footer-social a {
   color: var(--color-white);
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
 .footer-social a:hover { color: var(--color-gold); }
 .footer-social i { font-size: var(--fs-base); }

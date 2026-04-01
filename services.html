@@ -3,16 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Current Salon &amp; Color Bar</title>
-  <link
-    rel="stylesheet"
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="preload" as="image" href="./images/services/hero-bg.webp" type="image/webp" />
+  <meta name="description" content="Explore Current Salon's full menu of services — cuts, color, highlights, extensions, texture treatments, waxing, threading, and more in Ashburn, VA." />
+
+  <!-- Preconnect to external font origins -->
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- Non-blocking: Adobe Fonts (IvyBodoni) -->
+  <link rel="preload" as="style"
+    href="https://use.typekit.net/xbw8jyb.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://use.typekit.net/xbw8jyb.css" /></noscript>
+
+  <!-- Non-blocking: Google Fonts (Lato) -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" /></noscript>
+
+  <!-- Non-blocking: Font Awesome (icons) -->
+  <link rel="preload" as="style"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    crossorigin="anonymous" referrerpolicy="no-referrer"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
+
+  <!-- Local styles -->
+  <link rel="stylesheet" href="./design-system.css" />
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./pages.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+  <title>Services | Current Salon &amp; Color Bar</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 </head>
 <body>
 
@@ -27,8 +56,7 @@
       <a class="header-logo" href="/">
         <img
           src="./images/shared/logo-header.png"
-          alt="Current Salon &amp; Color Bar"
-        />
+          alt="Current Salon &amp; Color Bar" width="227" height="48" />
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -99,7 +127,8 @@
         <img
         src="./images/services/hero-bg.jpg"
         alt=""
-      />
+          fetchpriority="high"
+        />
       </picture>
     </div>
     <div class="page-hero-overlay" aria-hidden="true"></div>
@@ -299,8 +328,7 @@
         <div class="footer-logo">
           <img
             src="./images/shared/logo-footer.png"
-            alt="Current Salon &amp; Color Bar"
-          />
+            alt="Current Salon &amp; Color Bar" width="195" height="48" />
         </div>
 
         <div class="footer-columns">

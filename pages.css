@@ -509,7 +509,7 @@
   font-family: var(--font-body);
   font-weight: var(--fw-bold);
   font-size: var(--fs-xs);
-  color: #9f906c;
+  color: var(--color-text-muted); /* #616161 — passes 4.5:1 contrast on white */
   text-transform: uppercase;
   letter-spacing: 1.44px;
   line-height: 28px;
@@ -792,7 +792,7 @@
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
-  background: #c4c4c4;
+  background: var(--color-bg-dark); /* #2d2d2d — ensures white label text passes 4.5:1 contrast */
   cursor: pointer;
 }
 
