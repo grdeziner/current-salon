@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Current Salon & Color Bar</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://use.typekit.net/xbw8jyb.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Design tokens -->
+  <link rel="stylesheet" href="./design-system.css" />
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Page ── */
+    body {
+      background: var(--color-sand-medium);
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      color: var(--color-text-primary);
+      padding: 64px 96px 120px;
+    }
+
+    .sg-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* ── Page title ── */
+    .sg-page-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-light);
+      letter-spacing: var(--ls-tight);
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .sg-page-sub {
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-regular);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 72px;
+    }
+
+    /* ── Section ── */
+    .sg-section {
+      margin-bottom: 72px;
+    }
+    .sg-section-title {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-gold);
+      margin-bottom: 32px;
+    }
+
+    /* ── Labels ── */
+    .sg-label {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    .sg-label strong {
+      display: block;
+      color: var(--color-text-secondary);
+    }
+
+    /* ── Colors ── */
+    .sg-color-group {
+      margin-bottom: 24px;
+    }
+    .sg-color-group-label {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+    .sg-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .sg-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .sg-swatch-color {
+      width: 120px;
+      height: 80px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .sg-gradient-strip {
+      width: 100%;
+      height: 80px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(90deg, #e5e1d4, #bca294);
+      border: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 4px;
+    }
+    .sg-gradient-row {
+      margin-top: 16px;
+    }
+
+    /* ── Typography — families ── */
+    .sg-type-family-row {
+      margin-bottom: 32px;
+    }
+    .sg-type-family-title {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+    .sg-weights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .sg-weight-sample {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .sg-weight-text-display {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .sg-weight-text-body {
+      font-family: var(--font-body);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    /* ── Type scale ── */
+    .sg-scale-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      align-items: baseline;
+      gap: 16px 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-sand-warm);
+    }
+    .sg-scale-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-top: 4px;
+    }
+    .sg-scale-token {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+    .sg-scale-px {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* ── Headings specimen ── */
+    .sg-specimen-row {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--color-sand-warm);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .sg-specimen-label {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* ── Spacing bars ── */
+    .sg-space-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 6px 0;
+    }
+    .sg-space-bar {
+      height: 20px;
+      background: var(--color-gold);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .sg-space-meta {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+    .sg-space-meta strong {
+      color: var(--color-text-secondary);
+      font-weight: var(--fw-bold);
+    }
+
+    /* ── Radius ── */
+    .sg-radius-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-end;
+    }
+    .sg-radius-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .sg-radius-box {
+      width: 72px;
+      height: 72px;
+      background: var(--color-gold);
+    }
+
+    /* ── Shadows ── */
+    .sg-shadow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .sg-shadow-card {
+      width: 220px;
+      height: 140px;
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .sg-shadow-card .sg-label {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 40px 24px 80px; }
+      .sg-scale-row { grid-template-columns: 1fr; }
+      .sg-scale-meta { flex-direction: row; gap: 10px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="sg-wrap">
+
+  <h1 class="sg-page-title">Design System</h1>
+  <p class="sg-page-sub">Current Salon &amp; Color Bar — Living Styleguide</p>
+
+
+  <!-- ============================================================
+       COLORS
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Colors</h2>
+
+    <!-- Brand -->
+    <div class="sg-color-group">
+      <div class="sg-color-group-label">Brand</div>
+      <div class="sg-swatches">
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#9f906c;"></div>
+          <div class="sg-label"><strong>--color-gold</strong>#9f906c</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#d0c18e;"></div>
+          <div class="sg-label"><strong>--color-gold-light</strong>#d0c18e</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#f1e8d2;"></div>
+          <div class="sg-label"><strong>--color-sand-light</strong>#f1e8d2</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#f5f3eb;"></div>
+          <div class="sg-label"><strong>--color-sand-medium</strong>#f5f3eb</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#e5e1d4;"></div>
+          <div class="sg-label"><strong>--color-sand-warm</strong>#e5e1d4</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#bca294;"></div>
+          <div class="sg-label"><strong>--color-sand-dark</strong>#bca294</div>
+        </div>
+
+      </div>
+
+      <div class="sg-gradient-row">
+        <div class="sg-gradient-strip"></div>
+        <div class="sg-label">Brand gradient — <strong>--color-sand-warm</strong> → <strong>--color-sand-dark</strong> &nbsp;(#e5e1d4 → #bca294)</div>
+      </div>
+    </div>
+
+    <!-- Neutrals -->
+    <div class="sg-color-group">
+      <div class="sg-color-group-label">Neutrals</div>
+      <div class="sg-swatches">
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#ffffff;"></div>
+          <div class="sg-label"><strong>--color-white</strong>#ffffff</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#e8e8e7;"></div>
+          <div class="sg-label"><strong>--color-off-white</strong>#e8e8e7</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#cdcdcd;"></div>
+          <div class="sg-label"><strong>--color-light-gray</strong>#cdcdcd</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#b0b0b0;"></div>
+          <div class="sg-label"><strong>--color-mid-gray</strong>#b0b0b0</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#616161;"></div>
+          <div class="sg-label"><strong>--color-text-muted</strong>#616161</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#4b494a;"></div>
+          <div class="sg-label"><strong>--color-text-secondary</strong>#4b494a</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#2d2d2d;"></div>
+          <div class="sg-label"><strong>--color-text-primary</strong>#2d2d2d</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#000000;"></div>
+          <div class="sg-label"><strong>--color-black</strong>#000000</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Semantic -->
+    <div class="sg-color-group">
+      <div class="sg-color-group-label">Semantic Aliases</div>
+      <div class="sg-swatches">
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#ffffff;"></div>
+          <div class="sg-label"><strong>--color-bg-page</strong>→ white</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#2d2d2d;"></div>
+          <div class="sg-label"><strong>--color-bg-dark</strong>→ text-primary</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#cdcdcd;"></div>
+          <div class="sg-label"><strong>--color-bg-hero</strong>→ light-gray</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#e8e8e7;"></div>
+          <div class="sg-label"><strong>--color-bg-team</strong>→ off-white</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#f5f3eb;"></div>
+          <div class="sg-label"><strong>--color-bg-feed</strong>→ sand-medium</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#9f906c;"></div>
+          <div class="sg-label"><strong>--color-border-gold</strong>→ gold</div>
+        </div>
+
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#d0c18e;"></div>
+          <div class="sg-label"><strong>--color-accent</strong>→ gold-light</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TYPOGRAPHY — FAMILIES & WEIGHTS
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Typography — Families &amp; Weights</h2>
+
+    <!-- IvyBodoni -->
+    <div class="sg-type-family-row">
+      <div class="sg-type-family-title">IvyBodoni — Display &nbsp;·&nbsp; --font-display &nbsp;·&nbsp; Adobe Fonts</div>
+      <div class="sg-weights">
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-display" style="font-weight:300;">The quick brown fox</span>
+          <span class="sg-label"><strong>Light — 300</strong>--fw-light</span>
+        </div>
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-display" style="font-weight:400;">The quick brown fox</span>
+          <span class="sg-label"><strong>Regular — 400</strong>--fw-regular</span>
+        </div>
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-display" style="font-weight:700;">The quick brown fox</span>
+          <span class="sg-label"><strong>Bold — 700</strong>--fw-bold</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Lato -->
+    <div class="sg-type-family-row">
+      <div class="sg-type-family-title">Lato — Body &nbsp;·&nbsp; --font-body &nbsp;·&nbsp; Google Fonts</div>
+      <div class="sg-weights">
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-body" style="font-family:'Lato',sans-serif;font-weight:300;">The quick brown fox</span>
+          <span class="sg-label"><strong>Light — 300</strong>--fw-light</span>
+        </div>
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-body" style="font-family:'Lato',sans-serif;font-weight:400;">The quick brown fox</span>
+          <span class="sg-label"><strong>Regular — 400</strong>--fw-regular</span>
+        </div>
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-body" style="font-family:'Lato',sans-serif;font-weight:500;">The quick brown fox</span>
+          <span class="sg-label"><strong>Medium — 500</strong>--fw-medium</span>
+        </div>
+
+        <div class="sg-weight-sample">
+          <span class="sg-weight-text-body" style="font-family:'Lato',sans-serif;font-weight:700;">The quick brown fox</span>
+          <span class="sg-label"><strong>Bold — 700</strong>--fw-bold</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TYPOGRAPHY — TYPE SCALE
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Typography — Type Scale</h2>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-xs</span>
+        <span class="sg-scale-px">12px</span>
+      </div>
+      <span style="font-family:var(--font-body);font-size:12px;font-weight:400;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-sm</span>
+        <span class="sg-scale-px">14px</span>
+      </div>
+      <span style="font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-base</span>
+        <span class="sg-scale-px">16px</span>
+      </div>
+      <span style="font-family:var(--font-body);font-size:16px;font-weight:400;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-md</span>
+        <span class="sg-scale-px">18px</span>
+      </div>
+      <span style="font-family:var(--font-body);font-size:18px;font-weight:400;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-lg</span>
+        <span class="sg-scale-px">22px</span>
+      </div>
+      <span style="font-family:var(--font-display);font-size:22px;font-weight:300;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-xl</span>
+        <span class="sg-scale-px">28px</span>
+      </div>
+      <span style="font-family:var(--font-display);font-size:28px;font-weight:300;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-2xl</span>
+        <span class="sg-scale-px">38px</span>
+      </div>
+      <span style="font-family:var(--font-display);font-size:38px;font-weight:300;color:var(--color-text-primary);">Current Salon &amp; Color Bar</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-3xl</span>
+        <span class="sg-scale-px">48px</span>
+      </div>
+      <span style="font-family:var(--font-display);font-size:48px;font-weight:300;color:var(--color-text-primary);">Current Salon</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-4xl</span>
+        <span class="sg-scale-px">72px</span>
+      </div>
+      <span style="font-family:var(--font-display);font-size:72px;font-weight:300;line-height:1;color:var(--color-text-primary);">Current</span>
+    </div>
+
+    <div class="sg-scale-row">
+      <div class="sg-scale-meta">
+        <span class="sg-scale-token">--fs-5xl</span>
+        <span class="sg-scale-px">100px</span>
+      </div>
+      <span style="font-family:var(--font-display);font-size:100px;font-weight:300;line-height:1;color:var(--color-text-primary);">Current</span>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       TYPOGRAPHY — HEADINGS & BODY
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Typography — Headings &amp; Body</h2>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">H1 — IvyBodoni Light · --fs-4xl (72px) · --lh-tight</span>
+      <span style="font-family:var(--font-display);font-size:72px;font-weight:300;line-height:1.0;color:var(--color-text-primary);">Heading One</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">H2 — IvyBodoni Light · --fs-3xl (48px) · --lh-snug</span>
+      <span style="font-family:var(--font-display);font-size:48px;font-weight:300;line-height:1.15;color:var(--color-text-primary);">Heading Two</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">H3 — IvyBodoni Light · --fs-2xl (38px) · --lh-normal</span>
+      <span style="font-family:var(--font-display);font-size:38px;font-weight:300;line-height:1.2;color:var(--color-text-primary);">Heading Three</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">H4 — IvyBodoni Light · --fs-xl (28px) · --lh-normal</span>
+      <span style="font-family:var(--font-display);font-size:28px;font-weight:300;line-height:1.2;color:var(--color-text-primary);">Heading Four</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">Body — Lato Regular · --fs-base (16px) · --lh-loose (1.8)</span>
+      <p style="font-family:var(--font-body);font-size:16px;font-weight:400;line-height:1.8;color:var(--color-text-primary);max-width:640px;">At Current Salon &amp; Color Bar, we believe great hair starts with a great experience. Located at One Loudoun in Ashburn, VA, our team of expert stylists is dedicated to bringing out your best — through precision cuts, stunning color, and personalized care.</p>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">Small / Caption — Lato Regular · --fs-sm (14px) · --lh-relaxed (1.5)</span>
+      <span style="font-family:var(--font-body);font-size:14px;font-weight:400;line-height:1.5;color:var(--color-text-muted);">Caption or supporting text at 14px. Used for image captions, fine print, and secondary info.</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">X-Small — Lato Regular · --fs-xs (12px)</span>
+      <span style="font-family:var(--font-body);font-size:12px;font-weight:400;color:var(--color-text-muted);">Micro text — labels, badges, fine print.</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">Navigation Label — Lato Regular · --fs-sm (14px) · uppercase · --ls-wide (0.12em)</span>
+      <span style="font-family:var(--font-body);font-size:14px;font-weight:400;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-primary);">Salon &nbsp; Team &nbsp; Services &nbsp; Resources &nbsp; Careers</span>
+    </div>
+
+    <div class="sg-specimen-row">
+      <span class="sg-specimen-label">Photo Card Label — Lato Light · --fs-sm (14px) · uppercase · --ls-widest (0.22em)</span>
+      <span style="font-family:var(--font-body);font-size:14px;font-weight:300;text-transform:uppercase;letter-spacing:0.22em;color:var(--color-text-primary);">Precision Color &nbsp; | &nbsp; Cut &amp; Style &nbsp; | &nbsp; Extensions</span>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SPACING
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Spacing</h2>
+
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:4px;"></div><span class="sg-space-meta"><strong>--space-1</strong> · 4px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:8px;"></div><span class="sg-space-meta"><strong>--space-2</strong> · 8px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:10px;"></div><span class="sg-space-meta"><strong>--space-3</strong> · 10px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:12px;"></div><span class="sg-space-meta"><strong>--space-4</strong> · 12px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:14px;"></div><span class="sg-space-meta"><strong>--space-5</strong> · 14px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:16px;"></div><span class="sg-space-meta"><strong>--space-6</strong> · 16px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:20px;"></div><span class="sg-space-meta"><strong>--space-7</strong> · 20px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:24px;"></div><span class="sg-space-meta"><strong>--space-8</strong> · 24px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:30px;"></div><span class="sg-space-meta"><strong>--space-9</strong> · 30px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:32px;"></div><span class="sg-space-meta"><strong>--space-10</strong> · 32px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:40px;"></div><span class="sg-space-meta"><strong>--space-11</strong> · 40px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:48px;"></div><span class="sg-space-meta"><strong>--space-12</strong> · 48px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:58px;"></div><span class="sg-space-meta"><strong>--space-13</strong> · 58px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:64px;"></div><span class="sg-space-meta"><strong>--space-14</strong> · 64px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:77px;"></div><span class="sg-space-meta"><strong>--space-15</strong> · 77px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:80px;"></div><span class="sg-space-meta"><strong>--space-16</strong> · 80px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:96px;"></div><span class="sg-space-meta"><strong>--space-17</strong> · 96px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:120px;"></div><span class="sg-space-meta"><strong>--space-18</strong> · 120px</span></div>
+    <div class="sg-space-row"><div class="sg-space-bar" style="width:180px;"></div><span class="sg-space-meta"><strong>--space-19</strong> · 180px</span></div>
+
+  </section>
+
+
+  <!-- ============================================================
+       BORDER RADIUS
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Border Radius</h2>
+    <div class="sg-radius-row">
+
+      <div class="sg-radius-swatch">
+        <div class="sg-radius-box" style="border-radius:0;"></div>
+        <span class="sg-label"><strong>--radius-none</strong>0</span>
+      </div>
+
+      <div class="sg-radius-swatch">
+        <div class="sg-radius-box" style="border-radius:4px;"></div>
+        <span class="sg-label"><strong>--radius-sm</strong>4px</span>
+      </div>
+
+      <div class="sg-radius-swatch">
+        <div class="sg-radius-box" style="border-radius:8px;"></div>
+        <span class="sg-label"><strong>--radius-md</strong>8px</span>
+      </div>
+
+      <div class="sg-radius-swatch">
+        <div class="sg-radius-box" style="border-radius:16px;"></div>
+        <span class="sg-label"><strong>--radius-lg</strong>16px</span>
+      </div>
+
+      <div class="sg-radius-swatch">
+        <div class="sg-radius-box" style="border-radius:24px;"></div>
+        <span class="sg-label"><strong>--radius-xl</strong>24px</span>
+      </div>
+
+      <div class="sg-radius-swatch">
+        <div class="sg-radius-box" style="border-radius:9999px;"></div>
+        <span class="sg-label"><strong>--radius-full</strong>9999px</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SHADOWS
+       ============================================================ -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Shadows</h2>
+    <div class="sg-shadow-row">
+
+      <div>
+        <div class="sg-shadow-card" style="box-shadow:0px 14px 34px 0px rgba(0,0,0,0.25);">
+          <span class="sg-label" style="text-align:center;"><strong>--shadow-card</strong>0px 14px 34px 0px<br/>rgba(0,0,0,0.25)</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sg-shadow-card" style="box-shadow:0px 0px 74px 0px #000000;">
+          <span class="sg-label" style="text-align:center;"><strong>--shadow-photo</strong>0px 0px 74px 0px<br/>#000000</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
